@@ -14,19 +14,27 @@ body {
     padding: 0;
     color: #fff;
     background-image: url('https://imgur.com/qZvJhjw.jpg'); /* Desktop background image */
-    background-size: cover; /* Ensure the image covers the screen */
-    background-position: center center; /* Center the background */
+    background-size: 100% auto; /* Cover width first for larger screens */
+    background-position: top center; /* Align image at the top center */
     background-repeat: no-repeat; /* Prevent tiling */
     background-attachment: fixed; /* Keep the background static during scroll */
     min-height: 100vh; /* Ensure it covers the full height of the viewport */
     background-color: #000; /* Fallback color */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     body {
         background-image: url('https://imgur.com/bnqqq8n.jpg'); /* Mobile background image */
-        background-size: cover;
-        background-position: center center;
+        background-size: cover; /* Ensure the image scales proportionally */
+        background-position: center center; /* Align image at the center */
+        background-attachment: scroll; /* Remove fixed attachment for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-size: cover; /* Fill the viewport for smaller screens */
+        background-position: center; /* Center-align image */
     }
 }
 
